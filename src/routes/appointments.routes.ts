@@ -29,8 +29,6 @@ appointimetsRouter.post('/', async (request, response) => {
 });
 
 appointimetsRouter.get('/', async (request, response) => {
-  console.log(request.user);
-
   const appointmentsRepository = getCustomRepository(AppointmentsRepository);
   const appointments = await appointmentsRepository.find();
 
