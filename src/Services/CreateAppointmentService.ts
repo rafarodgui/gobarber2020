@@ -1,6 +1,7 @@
 import { startOfHour, isBefore } from 'date-fns';
 import { getCustomRepository } from 'typeorm';
 import Appointment from '../models/Appointment';
+import AppError from '../errors/AppError';
 
 import AppointmentsRepository from '../repositories/AppointmentsRepository';
 
@@ -20,11 +21,11 @@ class CreateAppointmentService {
     );
 
     if (findAppointmentsInSameDate) {
-      throw Error('This date is occuped');
+      throw new AppError('This date is occuped', 401);
     }
 
     if (isBefore(startOfHour(date), startOfHour(new Date()))) {
-      throw Error('past dates are not permitted');
+      throw new AppError('past dates are not permitted');
     }
 
     const appointment = appointmentsRepository.create({
