@@ -1,0 +1,3 @@
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/rafaelRodruiguesGuimaraes/gobarber2020web.git
