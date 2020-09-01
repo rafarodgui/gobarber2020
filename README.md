@@ -11,6 +11,7 @@
 Clone this repository to your pc, use yarn in the project folder to download all dependencies, then use yarn dev:server to run or yarn test to tests.
 
 Backend: **NodeJS, express, Typescript, PostgresSQL (Type ORM). With Unit testing using Jest**.
+<br />
 web: **ReactJS, Styled-components, Axios, Polished, React-icons, Yup, Typescript**
 
 <div>
