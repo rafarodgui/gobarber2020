@@ -1,7 +1,5 @@
-<div align-items="center">
   <img alt="logo" src="https://res.cloudinary.com/dun9eiybb/image/upload/v1598985684/Gobarber2020/logo_hq6tkv.svg" align="center" />
-</div>
-
+  
 <h1 align="center"> Gobarber2020 </h1>
 
 <p align="center"> An App for barbers to schedule services with the costumers </p>
