@@ -10,7 +10,7 @@ A project using **NodeJS, express, Typescript, PostgresSQL (Type ORM). With Unit
 
 <div>
   <a href="https://nodejs.org/en/" target="blank">
-    <img alt="Node-logo" src="https://res.cloudinary.com/dun9eiybb/image/upload/v1598985122/Gobarber2020/Techs/node-dot-js_kbtbm7.svg" width=50 margin-right=132/>
+    <img alt="Node-logo" src="https://res.cloudinary.com/dun9eiybb/image/upload/v1598985122/Gobarber2020/Techs/node-dot-js_kbtbm7.svg" width=50 color="#009933"/>
   </a>
   <a href="https://github.com/microsoft/TypeScript" target="blank">
     <img alt="Typescript-logo" src="https://res.cloudinary.com/dun9eiybb/image/upload/v1598985122/Gobarber2020/Techs/typescript_shsw5z.svg" width=50/>
