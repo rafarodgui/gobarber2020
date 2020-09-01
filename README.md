@@ -1,8 +1,6 @@
-<div background-color="#312e37" width="100vw">
-	<h1 align="center">
-		<img alt="GoStack" src="https://res.cloudinary.com/dun9eiybb/image/upload/v1598985684/Gobarber2020/logo_hq6tkv.svg" width="200px" />
-	</h1>
-</div>
+<h1 align="center">
+	<img alt="GoStack" src="https://res.cloudinary.com/dun9eiybb/image/upload/v1598985684/Gobarber2020/logo_hq6tkv.svg" width="200px" />
+</h1>
   
 <h1 align="center"> Gobarber2020 </h1>
 
