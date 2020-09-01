@@ -1,4 +1,4 @@
-<h1 align="center">
+<h1 align="center" background="#312e37">
 	<img alt="GoStack" src="https://res.cloudinary.com/dun9eiybb/image/upload/v1598985684/Gobarber2020/logo_hq6tkv.svg" width="200px" />
 </h1>
   
