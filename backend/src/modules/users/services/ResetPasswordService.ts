@@ -1,5 +1,5 @@
 // import User from '@modules/users/infra/typeorm/entities/User';
-import { differenceInHours, addHours, isAfter } from 'date-fns';
+import { addHours, isAfter } from 'date-fns';
 
 import { inject, injectable } from 'tsyringe';
 
@@ -40,10 +40,6 @@ class ResetPasswordService {
     if (!user) {
       throw new AppError('User does not exist');
     }
-
-    // if (differenceInHours(Date.now(), userToken.created_at) > 2) {
-    //  throw new AppError('Error, token is expired');
-    // }
 
     const compareDate = addHours(userToken.created_at, 2);
 
