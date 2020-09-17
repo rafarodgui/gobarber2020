@@ -20,7 +20,7 @@ A project using **NodeJS, express, Typescript, PostgresSQL (Type ORM). With Unit
     <img alt="Node-logo" src="https://res.cloudinary.com/dun9eiybb/image/upload/v1598985122/Gobarber2020/Techs/node-dot-js_kbtbm7.svg" width=50 />
   </a>
   <a href="https://github.com/microsoft/TypeScript">
-    <img alt="Typescript-logo" src="https://res.cloudinary.com/dun9eiybb/image/upload/v1598985122/Gobarber2020/Techs/typescript_shsw5z.svg" width=50/>
+    <img alt="Typescript-logo" src="https://res.cloudinary.com/dun9eiybb/image/upload/v1598985122/Gobarber2020/Techs/typescript_shsw5z.svg" width="50px"/>
   </a>
 </div>
 >>>>>>> e0f7d5802ab21147cdf37cf4fa4ed045eb1d964e
