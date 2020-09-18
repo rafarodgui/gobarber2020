@@ -4,11 +4,16 @@ import FakeHashProvider from '@modules/users/providers/HashProvider/fakes/FakeHa
 import AppError from '@shared/errors/AppError';
 import CreateUserService from './CreateUserService';
 
-describe('CreateUser', () => {
-  it('should be able to create a new user', async () => {
-    const fakeUserRepository = new FakeUsersRepository();
-    const fakeHashProvider = new FakeHashProvider();
+let fakeUserRepository: FakeUsersRepository;
+let fakeHashProvider: FakeHashProvider;
 
+describe('CreateUser', () => {
+  beforeEach(() => {
+    fakeUserRepository = new FakeUsersRepository();
+    fakeHashProvider = new FakeHashProvider();
+  });
+
+  it('should be able to create a new user', async () => {
     const createUser = new CreateUserService(
       fakeUserRepository,
       fakeHashProvider,
@@ -26,9 +31,6 @@ describe('CreateUser', () => {
   });
 
   it('should not be ablle to create a new user with the same e-mail from another', async () => {
-    const fakeUserRepository = new FakeUsersRepository();
-    const fakeHashProvider = new FakeHashProvider();
-
     const createUser = new CreateUserService(
       fakeUserRepository,
       fakeHashProvider,
