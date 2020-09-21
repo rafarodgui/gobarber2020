@@ -70,25 +70,25 @@ describe('UpdateProfile', () => {
     const user = await fakeUserRepository.create({
       name: 'Jhon Doe',
       email: 'jhon@doe.com',
-      password: 'currentPassword',
+      password: 'current-password',
     });
 
     const updatedUser = await updateProfile.execute({
       user_id: user.id,
       name: 'Jhon Doe',
       email: 'jhon@doe.com',
-      oldPassword: 'currentPassword',
-      password: 'newPassword',
+      old_password: 'current-password',
+      password: 'new-password',
     });
 
-    expect(updatedUser.password).toBe('newPassword');
+    expect(updatedUser.password).toBe('new-password');
   });
 
   it('should not be able to reset password without provide the old password', async () => {
     const user = await fakeUserRepository.create({
       name: 'Jhon Doe',
       email: 'jhon@doe.com',
-      password: 'currentPassword',
+      password: 'current-password',
     });
 
     await expect(
@@ -96,7 +96,25 @@ describe('UpdateProfile', () => {
         user_id: user.id,
         name: 'Jhon Doe',
         email: 'jhon@doe.com',
-        password: 'newPassword',
+        password: 'new-password',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+  });
+
+  it('should not be able to reset password if the old one provided is wrong', async () => {
+    const user = await fakeUserRepository.create({
+      name: 'Jhon Doe',
+      email: 'jhon@doe.com',
+      password: 'old-password',
+    });
+
+    await expect(
+      updateProfile.execute({
+        user_id: user.id,
+        name: 'Jhon Doe',
+        email: 'jhon@doe.com',
+        old_password: 'wrong-old-password',
+        password: 'new-password',
       }),
     ).rejects.toBeInstanceOf(AppError);
   });
