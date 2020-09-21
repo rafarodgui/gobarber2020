@@ -30,9 +30,32 @@ class UpdateProfile {
     password,
     oldPassword,
   }: IRequest): Promise<User> {
-    const user = this.usersRepository.findByEmail(email);
+    const user = await this.usersRepository.findById(user_id);
 
-    return user;
+    if (!user) {
+      throw new AppError('user does not exist');
+    }
+
+    const userWithUpdatedEmail = await this.usersRepository.findByEmail(email);
+
+    if (userWithUpdatedEmail && userWithUpdatedEmail.id !== user.id) {
+      throw new AppError('This e-mail is already in use');
+    }
+
+    user.name = name;
+    user.email = email;
+
+    if (password) {
+      if (!oldPassword) {
+        throw new AppError('old password not provided');
+      }
+      if (!this.hashProvider.compareHash(oldPassword, user.password)) {
+        throw new AppError('Old password does not match');
+      }
+      user.password = await this.hashProvider.generateHash(password);
+    }
+
+    return this.usersRepository.save(user);
   }
 }
 
