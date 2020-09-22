@@ -16,12 +16,4 @@ export default class UserController {
 
     return response.json({ user });
   }
-
-  // public async index(request: Request, response: Response): Promise<Response> {
-  //   const userRepository = getRepository(User);
-
-  //   const users = await userRepository.find();
-
-  //   return response.json(users);
-  // }
 }

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import UpdateProfileService from '@modules/users/services/UpdateProfileService';
+import UpdateProfileService from '@modules/users/services/ProfileService';
 import ShowProfileService from '@modules/users/services/ShowProfileService';
 
 export default class UpdateProfileController {
@@ -29,7 +29,7 @@ export default class UpdateProfileController {
       old_password,
     });
 
-    delete user.password;
+    // delete user.password;
 
     return response.json(user);
   }

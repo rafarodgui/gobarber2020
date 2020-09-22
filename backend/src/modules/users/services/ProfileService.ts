@@ -14,12 +14,12 @@ interface IRequest {
 }
 
 @injectable()
-class UpdateProfile {
+class Profile {
   constructor(
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
 
-    @inject('StorageProvider')
+    @inject('HashProvider')
     private hashProvider: IHashProvider,
   ) {}
 
@@ -45,11 +45,11 @@ class UpdateProfile {
     user.name = name;
     user.email = email;
 
-    if (password) {
-      if (!old_password) {
-        throw new AppError('old password not provided');
-      }
+    if (password && !old_password) {
+      throw new AppError('old password not provided');
+    }
 
+    if (password && old_password) {
       const checkOldPassword = await this.hashProvider.compareHash(
         old_password,
         user.password,
@@ -66,4 +66,4 @@ class UpdateProfile {
   }
 }
 
-export default UpdateProfile;
+export default Profile;
