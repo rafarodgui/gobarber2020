@@ -28,7 +28,7 @@ describe('ShowProfile', () => {
 
   it('should not be able to show a profile of a non-existing user', async () => {
     expect(
-      await showProfile.execute({
+      showProfile.execute({
         user_id: 'non-existing-token',
       }),
     ).rejects.toBeInstanceOf(AppError);

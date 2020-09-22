@@ -11,4 +11,6 @@ updateProfileRouter.use(ensureAuthenticated);
 
 updateProfileRouter.put('/update-profile', updateProfileController.update);
 
+updateProfileRouter.get('/show', updateProfileController.show);
+
 export default updateProfileRouter;

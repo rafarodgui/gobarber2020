@@ -29,8 +29,8 @@ export default class UpdateProfileController {
       old_password,
     });
 
-    // delete user.password;
+    delete user.password;
 
-    return response.send().json(user);
+    return response.json(user);
   }
 }
