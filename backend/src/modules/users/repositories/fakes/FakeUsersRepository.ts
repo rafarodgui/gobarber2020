@@ -13,6 +13,16 @@ class UsersRepository implements IUserRepository {
     return findUser;
   }
 
+  public async findAllProviders(except_user_id?: string): Promise<User[]> {
+    const { users } = this;
+
+    if (except_user_id) {
+      users.filter(user => user.id !== except_user_id);
+    }
+
+    return users;
+  }
+
   public async findByEmail(email: string): Promise<User | undefined> {
     const findUser = this.users.find(user => user.email === email);
 
