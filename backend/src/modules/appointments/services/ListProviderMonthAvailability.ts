@@ -1,6 +1,8 @@
 import 'reflect-metadata';
 import { injectable, inject } from 'tsyringe';
 
+import { getDaysInMonth, getDate } from 'date-fns';
+
 import IAppointmentsRepository from '../repositories/IAppointmentsRepository';
 
 interface IRequest {
@@ -26,15 +28,28 @@ class ListProviderMonthAvailability {
     month,
     year,
   }: IRequest): Promise<IResponse> {
-    const appointment = this.appointmentsRepository.findAllInMonthFromProvider({
-      provider_id,
-      month,
-      year,
+    const appointments = this.appointmentsRepository.findAllInMonthFromProvider(
+      {
+        provider_id,
+        month,
+        year,
+      },
+    );
+
+    const numberOfDaysInMonth = getDaysInMonth(new Date(year, month));
+
+    const eachDayArray = Array.from(
+      { length: numberOfDaysInMonth },
+      (_, index) => index + 1,
+    );
+
+    const availableDays = eachDayArray.map(day => {
+      const appointmentsInDay = appointments.filter(appointment => {
+        return getDate(appointment.date) === day;
+      });
     });
 
-    console.log(appointment);
-
-    return [{ day: 1, available: false }];
+    return availableDays;
   }
 }
 
