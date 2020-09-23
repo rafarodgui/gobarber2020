@@ -39,20 +39,20 @@ describe('ListProviders', () => {
 
   it('should not list the logged user at provider list', async () => {
     const user1 = await fakeUserRepository.create({
-      name: 'User1',
-      email: 'user@1.com',
+      name: 'Jhon Doe',
+      email: 'jhondoe@example.com',
       password: '123',
     });
 
     const user2 = await fakeUserRepository.create({
-      name: 'User2',
-      email: 'user@2.com',
+      name: 'Jhon tre',
+      email: 'jhontre@example.com',
       password: '123',
     });
 
     const loggedUser = await fakeUserRepository.create({
-      name: 'Jhon Doe',
-      email: 'jhon@doe.com',
+      name: 'Jhon Qua',
+      email: 'jhonqua@example.com',
       password: '123',
     });
 
