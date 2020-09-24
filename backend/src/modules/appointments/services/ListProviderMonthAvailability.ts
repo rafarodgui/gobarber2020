@@ -28,7 +28,7 @@ class ListProviderMonthAvailability {
     month,
     year,
   }: IRequest): Promise<IResponse> {
-    const appointments = this.appointmentsRepository.findAllInMonthFromProvider(
+    const appointments = await this.appointmentsRepository.findAllInMonthFromProvider(
       {
         provider_id,
         month,
@@ -47,7 +47,14 @@ class ListProviderMonthAvailability {
       const appointmentsInDay = appointments.filter(appointment => {
         return getDate(appointment.date) === day;
       });
+
+      return {
+        day,
+        available: appointmentsInDay.length < 10,
+      };
     });
+
+    console.log(availableDays);
 
     return availableDays;
   }
