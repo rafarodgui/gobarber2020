@@ -75,7 +75,6 @@ describe('ListProviders', () => {
         { day: 19, available: true },
         { day: 20, available: false },
         { day: 21, available: true },
-        { day: 21, available: true },
       ]),
     );
   });

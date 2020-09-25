@@ -54,8 +54,6 @@ class ListProviderMonthAvailability {
       };
     });
 
-    console.log(availableDays);
-
     return availableDays;
   }
 }
