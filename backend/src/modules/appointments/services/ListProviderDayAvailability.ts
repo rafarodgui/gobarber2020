@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import { injectable, inject } from 'tsyringe';
 
-import { getHours, isAfter, isBefore } from 'date-fns';
+import { getHours, isAfter } from 'date-fns';
 
 import IAppointmentsRepository from '../repositories/IAppointmentsRepository';
 
