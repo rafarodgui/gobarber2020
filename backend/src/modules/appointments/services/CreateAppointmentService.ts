@@ -30,8 +30,6 @@ class CreateAppointmentService {
       { date: appointmentDate, provider_id },
     );
 
-    console.log(findAppointmentsInSameDate);
-
     if (findAppointmentsInSameDate) {
       throw new AppError('This date is occuped', 401);
     }
@@ -43,7 +41,7 @@ class CreateAppointmentService {
     const appointment = await this.appointmentsRepository.create({
       provider_id,
       user_id,
-      date: new Date(),
+      date: appointmentDate,
     });
 
     return appointment;
