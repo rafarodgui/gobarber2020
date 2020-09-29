@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import { injectable, inject } from 'tsyringe';
 
-import { getDaysInMonth, getDate } from 'date-fns';
+import { getDaysInMonth, getDate, isAfter } from 'date-fns';
 
 import IAppointmentsRepository from '../repositories/IAppointmentsRepository';
 
@@ -48,9 +48,13 @@ class ListProviderMonthAvailability {
         return getDate(appointment.date) === day;
       });
 
+      const currentDate = new Date(Date.now());
+      const compareDate = new Date(year, month - 1, day);
+
       return {
         day,
-        available: appointmentsInDay.length < 10,
+        available:
+          appointmentsInDay.length < 10 && isAfter(compareDate, currentDate),
       };
     });
 

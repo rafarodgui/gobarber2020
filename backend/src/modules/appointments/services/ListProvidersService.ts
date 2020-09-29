@@ -19,8 +19,6 @@ class ListProvidersService {
       except_user_id: user_id,
     });
 
-    console.log(users);
-
     return users;
   }
 }

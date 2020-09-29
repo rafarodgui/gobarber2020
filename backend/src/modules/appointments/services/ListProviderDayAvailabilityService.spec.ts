@@ -1,5 +1,5 @@
 // import AppError from '@shared/errors/AppError';
-import ListProviderDayAvailability from './ListProviderDayAvailability';
+import ListProviderDayAvailability from './ListProviderDayAvailabilityService';
 import FakeAppointsmentRepository from '../repositories/fakes/FakeAppointmentsRepository';
 
 let listProviderDayAvailability: ListProviderDayAvailability;

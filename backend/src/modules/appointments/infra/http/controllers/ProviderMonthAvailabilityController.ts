@@ -1,8 +1,8 @@
 import { container } from 'tsyringe';
-import ListProviderMonthAvailabilityService from '@modules/appointments/services/ListProviderMonthAvailability';
+import ListProviderMonthAvailabilityService from '@modules/appointments/services/ListProviderMonthAvailabilityService';
 import { Request, Response } from 'express';
 
-export default class AvailabilityController {
+export default class ProviderMonthAvailabilityController {
   public async execute(
     request: Request,
     response: Response,
@@ -11,13 +11,13 @@ export default class AvailabilityController {
       ListProviderMonthAvailabilityService,
     );
 
-    const provider_id = request.user.id;
+    const { provider_id } = request.params;
     const { month, year } = request.body;
 
-    const listAvailability = await listProviderMonthAvailabilityService.execute(
+    const listMonthAvailability = await listProviderMonthAvailabilityService.execute(
       { provider_id, month, year },
     );
 
-    return response.json(listAvailability);
+    return response.json(listMonthAvailability);
   }
 }
