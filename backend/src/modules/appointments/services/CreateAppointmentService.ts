@@ -27,21 +27,23 @@ class CreateAppointmentService {
     const appointmentDate = startOfHour(date);
 
     const findAppointmentsInSameDate = await this.appointmentsRepository.findByDate(
-      appointmentDate,
+      { date: appointmentDate, provider_id },
     );
+
+    console.log(findAppointmentsInSameDate);
 
     if (findAppointmentsInSameDate) {
       throw new AppError('This date is occuped', 401);
     }
 
-    if (isBefore(startOfHour(date), startOfHour(new Date()))) {
+    if (isBefore(appointmentDate, Date.now())) {
       throw new AppError('past dates are not permitted');
     }
 
     const appointment = await this.appointmentsRepository.create({
       provider_id,
       user_id,
-      date: appointmentDate,
+      date: new Date(),
     });
 
     return appointment;
