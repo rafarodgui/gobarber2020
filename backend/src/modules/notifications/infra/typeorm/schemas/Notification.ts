@@ -18,7 +18,7 @@ class Notifications {
   @Column('uuid')
   recipient_id: string;
 
-  @Column()
+  @Column({ default: false })
   read: boolean;
 
   @CreateDateColumn()
